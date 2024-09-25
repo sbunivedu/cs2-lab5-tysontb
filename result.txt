@@ -1,0 +1,58 @@
+customers:100
+Number of cashiers: 1
+Average time: 5317
+
+customers:100
+Number of cashiers: 2
+Average time: 2325
+
+customers:100
+Number of cashiers: 3
+Average time: 1332
+
+customers:100
+Number of cashiers: 4
+Average time: 840
+
+customers:100
+Number of cashiers: 5
+Average time: 547
+
+customers:100
+Number of cashiers: 6
+Average time: 355
+
+customers:100
+Number of cashiers: 7
+Average time: 219
+
+customers:100
+Number of cashiers: 8
+Average time: 120
+
+customers:100
+Number of cashiers: 9
+Average time: 120
+
+customers:100
+Number of cashiers: 10
+Average time: 120
+
+expect:abcd
+   got:abcd
+expect:a
+   got:a
+expect:empty string
+   got:empty string
+expect:EmptyCollectionException to be thrown
+EmptyCollectionException is caught
+
+This program simulates a ticket system where the customers are arriving in
+a queue to be served by the cashiers. The constants are the processing
+time, maximum cashiers, and the number of customers. The max number
+of cashiers is 10 and from 1 to 10 there is a varying average time for the
+customers. The process times are initialized and this enqueues the 
+customers based on their arrival times. As the customers are processed
+the program will calculate their departure time and track the total
+time spent. The output will show the amount of cashiers, the avg
+time customers spent waiting. 

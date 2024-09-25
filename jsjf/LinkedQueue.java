@@ -22,7 +22,19 @@ public class LinkedQueue<T> implements QueueADT<T>{
    * @param element the element to be added to the tail of the queue
    */
   public void enqueue(T element){
-    return;
+    LinearNode<T> node = new LinearNode<T>(element);
+    if (count == 0)
+    {
+      head = node;
+      tail = node;
+      count = 1;
+    }
+    else
+    {
+      tail.setNext(node);
+      tail = node;
+      count++;
+    }
   }
 
   /**
@@ -32,7 +44,25 @@ public class LinkedQueue<T> implements QueueADT<T>{
    * @throws EmptyCollectionException if the queue is empty
    */
   public T dequeue() throws EmptyCollectionException{
-    return null;
+    if (count == 0)
+    {
+      throw new EmptyCollectionException("Empty String");
+    }
+    else if (count == 1)
+    {
+      T result = head.getElement();
+      head = null;
+      tail = null;
+      count = 0;
+      return result;
+    }
+    else
+    {
+      T result = head.getElement();
+      head = head.getNext();
+      count--;
+      return result;
+    }
   }
 
   /**
@@ -43,7 +73,14 @@ public class LinkedQueue<T> implements QueueADT<T>{
    */
   public T first() throws EmptyCollectionException{
    // To be completed as a Programming Project
-    return null;
+    if (head == null)
+    {
+      throw new EmptyCollectionException("Empty String");
+    }
+    else
+    {
+      return head.getElement();
+    }
   }
 
   /**
@@ -52,7 +89,14 @@ public class LinkedQueue<T> implements QueueADT<T>{
   */
   public boolean isEmpty(){
     // To be completed as a Programming Project
-    return false;
+    if (head == null && tail == null)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
   /**
@@ -61,7 +105,7 @@ public class LinkedQueue<T> implements QueueADT<T>{
    */
   public int size(){
     // To be completed as a Programming Project
-    return 0;
+    return count;
   }
 
   /**
@@ -69,6 +113,11 @@ public class LinkedQueue<T> implements QueueADT<T>{
    * @return the string representation of the queue
    */
   public String toString(){
+    if (isEmpty())
+    {
+      return "empty string";
+    }
+
     String result = "";
     LinearNode<T> trav = head;
     while(trav != null){
